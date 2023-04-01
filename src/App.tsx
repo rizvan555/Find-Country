@@ -12,11 +12,11 @@ const AppContainer = styled.div`
     gap: 2vw;
     input {
       width: 20vw;
-      padding: 5px;
+      padding: 6px;
     }
     button {
-      width: 5vw;
-      padding: 5px 20p;
+      width: 6vw;
+      padding: 6px 20p;
     }
   }
 `;
