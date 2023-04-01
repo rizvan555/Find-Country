@@ -1,24 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  form {
+    display: flex;
+    gap: 2vw;
+    input {
+      width: 20vw;
+      padding: 5px;
+    }
+    button {
+      width: 5vw;
+      padding: 5px 20p;
+    }
+  }
+`;
+
+function searchButton(e: any) {
+  e.preventDefault();
+  const searchTerm = e.target.form[0].value;
+
+  fetch(`https://restcountries.com/v3.1/name/${searchTerm}`)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AppContainer>
+        <header>
+          <h1>Find your country 🤩</h1>
+        </header>
+        <main>
+          <form>
+            <input type="text" placeholder="Country name" />
+            <button onClick={searchButton}>Search</button>
+          </form>
+          <article></article>
+        </main>
+      </AppContainer>
     </div>
   );
 }
