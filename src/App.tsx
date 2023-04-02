@@ -97,6 +97,7 @@ function App() {
           backgroundImage: `url(${background2})`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
+          backgroundRepeat:"noRepeat",
         }}
       >
         <header>
