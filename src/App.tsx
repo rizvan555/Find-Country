@@ -98,8 +98,14 @@ function App() {
                   <p>{` ${countryData.borders}`}</p>
                 </li>
                 <li>
-                  Google Map:
-                  <p>{` ${countryData.maps.googleMaps}`}</p>
+                  Google Map: 
+                  <a href={`${countryData.maps.googleMaps}`}>
+                    {countryData.maps.googleMaps}
+                  </a>
+                </li>
+                <li>
+                  Continent:
+                  <p>{` ${countryData.continents}`}</p>
                 </li>
               </ul>
             </article>
