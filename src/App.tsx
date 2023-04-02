@@ -1,5 +1,7 @@
+import { url } from 'inspector';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import background2 from './resource/images/background2.jpg';
 
 const AppContainer = styled.div`
   display: flex;
@@ -8,52 +10,70 @@ const AppContainer = styled.div`
   flex-direction: column;
   height: 100vh;
   background-color: aliceblue;
+  color: white;
 
-  form {
-    display: flex;
-    gap: 2vw;
-    margin: 20px auto 50px auto;
-    input {
-      width: 30vw;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-    }
-    button {
-      width: 7vw;
-      padding: 10px 20p;
-      border: none;
-      border-radius: 5px;
-      box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  main {
+    form {
+      display: flex;
+      gap: 3vw;
+      margin: 20px auto 50px auto;
+      input {
+        width: 35vw;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+      }
+      button {
+        width: 10vw;
+        padding: 10px 20p;
+        border: none;
+        border-radius: 5px;
+        box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 
-      :hover {
-        background-color: red;
-        color: white;
+        :hover {
+          background-color: red;
+          color: white;
+          font-weight: bold;
+        }
       }
     }
-  }
-  article {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    h2 {
+    article {
       display: flex;
+      justify-content: center;
       align-items: center;
-      font-weight: bold;
-      color: red;
-    }
-    ul {
-      li {
+      flex-direction: column;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.3);
+      width: 50vw;
+      h2 {
         display: flex;
         align-items: center;
-        list-style-type: none;
         font-weight: bold;
+        color: red;
+        font-size: 30px;
+        letter-spacing: 1px;
       }
-      p {
-        font-weight: 400;
-        padding-left: 10px;
+      ul {
+        font-size: 20px;
+        li {
+          display: flex;
+          align-items: center;
+          list-style-type: none;
+          font-weight: bold;
+          color: #b5b8b1;
+        }
+        p,
+        a {
+          font-weight: 400;
+          padding-left: 10px;
+          color: white;
+        }
+        a:hover {
+          padding-left: 10px;
+          color: tomato;
+        }
       }
     }
   }
@@ -72,7 +92,13 @@ function App() {
   // )  console.log(data)  setCountryData(data[0]
   return (
     <div>
-      <AppContainer>
+      <AppContainer
+        style={{
+          backgroundImage: `url(${background2})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+        }}
+      >
         <header>
           <h1>Find your country 🤩</h1>
         </header>
@@ -98,7 +124,7 @@ function App() {
                   <p>{` ${countryData.borders}`}</p>
                 </li>
                 <li>
-                  Google Map: 
+                  Google Map:
                   <a href={`${countryData.maps.googleMaps}`}>
                     {countryData.maps.googleMaps}
                   </a>
